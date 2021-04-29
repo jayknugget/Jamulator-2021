@@ -1,0 +1,23 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FruitShredder : MonoBehaviour
+{
+    public float fruitShreddingBuffer;
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Fruit")
+        {
+            StartCoroutine(FruitShredderCoroutine(other.gameObject));
+        }
+    }
+
+    private IEnumerator FruitShredderCoroutine(GameObject fruit)
+    {
+        yield return new WaitForSeconds(fruitShreddingBuffer);
+        Destroy(fruit);
+    }
+}
