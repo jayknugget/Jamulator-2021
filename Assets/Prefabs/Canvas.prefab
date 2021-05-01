@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 6361996313104485906}
   - component: {fileID: 6361996313104485905}
   m_Layer: 5
-  m_Name: Fruit5 Icon
+  m_Name: Mango Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28d65df0a7ec741f699af276578adc05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5188fbbf53e8bab43938dc534ed9c33e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6361996313233222055}
   - component: {fileID: 6361996313233222054}
   m_Layer: 5
-  m_Name: Fruit5 Icon
+  m_Name: Mango Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28d65df0a7ec741f699af276578adc05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5188fbbf53e8bab43938dc534ed9c33e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 6361996313395850643}
   - component: {fileID: 6361996313395850642}
   m_Layer: 5
-  m_Name: Fruit3 Icon
+  m_Name: Peach Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 6361996313546176527}
   - component: {fileID: 6361996313546176526}
   m_Layer: 5
-  m_Name: Fruit4 Icon
+  m_Name: Orange Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,7 +598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.45250002, y: 0.06888888}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.050048828, y: 0.23999023}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6361996313869895273
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 6361996314053422543}
   - component: {fileID: 6361996314053422542}
   m_Layer: 5
-  m_Name: Fruit2 Icon
+  m_Name: Banana Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a0fec6fb08284aa3b6e0a93d6d38fc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d20ede7cc317a407a955001b8c4e1de0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 6361996314113401842}
   - component: {fileID: 6361996314113401841}
   m_Layer: 5
-  m_Name: Fruit2 Icon
+  m_Name: Banana Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a0fec6fb08284aa3b6e0a93d6d38fc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d20ede7cc317a407a955001b8c4e1de0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 6361996314578207175}
   - component: {fileID: 6361996314578207174}
   m_Layer: 5
-  m_Name: Fruit4 Icon
+  m_Name: Orange Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 138f3e7fbc4f84ee393de36eaf36c512, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 859ac5b31fc1e1245b53222955966a6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 6361996314595585283}
   - component: {fileID: 6361996314595585282}
   m_Layer: 5
-  m_Name: Fruit1 Icon
+  m_Name: Apple Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d20ede7cc317a407a955001b8c4e1de0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2792fae295f88fd418cb79f740911b11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 6361996314729432232}
   - component: {fileID: 6361996314729432215}
   m_Layer: 5
-  m_Name: Fruit1 Icon
+  m_Name: Apple Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d20ede7cc317a407a955001b8c4e1de0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2792fae295f88fd418cb79f740911b11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2065,7 +2065,7 @@ GameObject:
   - component: {fileID: 6361996315110743394}
   - component: {fileID: 6361996315110743393}
   m_Layer: 5
-  m_Name: Fruit3 Icon
+  m_Name: Peach Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
