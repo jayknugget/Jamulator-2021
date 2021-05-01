@@ -7,11 +7,13 @@ using DG.Tweening;
 public class OrderGenerator : MonoBehaviour
 {
     Basket basket;
+    PlayerPenalties playerPenalties;
 
     public float startingSecondsLeftOnOrder;
     public float totalSecondsLeftOnOrder;
 
-    public int[] currentFruitTypesInOrder;
+    public int currentPlayerPenalties;
+
     public int[] currentFruitAmountsInOrder;
 
     public Image[] fruitIcons;
@@ -24,14 +26,21 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] private float TicketTweenOutTime;
     [SerializeField] private AnimationCurve InAnimationCurve;
     [SerializeField] private AnimationCurve OutAnimationCurve;
+
+    public FruitType nextFruitOnTicket;
+    public FruitType[] fruitTypesOnTicket;
+
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
+        playerPenalties = FindObjectOfType<PlayerPenalties>();
         DOTween.Init(true, true, LogBehaviour.Default);
     }
 
     private void Start()
     {
+        currentPlayerPenalties = 0;
+        playerPenalties.UpdatePenaltyIconUI();
         StartCoroutine(GenerateRandomOrder());
     }
 
@@ -42,18 +51,13 @@ public class OrderGenerator : MonoBehaviour
 
     private IEnumerator GenerateRandomOrder()
     {
-        // There will be parallel arrays to determine what kind of fruit the customer wants
-        // and what amount of that fruit they want
         basket.ClearBasket();
         totalSecondsLeftOnOrder = startingSecondsLeftOnOrder;
-
-        int[] fruitTypesInOrder = { Random.Range(1, 5),Random.Range(1,5),
-            Random.Range(1,5), Random.Range(1,5), Random.Range(1,5)};
-        currentFruitTypesInOrder = fruitTypesInOrder;
 
         int[] fruitAmountsInOrder = { Random.Range(0, 3),Random.Range(0,3),
             Random.Range(0,3), Random.Range(0,3), Random.Range(0,3)};
         currentFruitAmountsInOrder = fruitAmountsInOrder;
+        SetNextFruitOnOrder();
         yield return BounceTicketOut();
         InitializeOrderUI();
         yield return BounceTicketIn();
@@ -61,7 +65,7 @@ public class OrderGenerator : MonoBehaviour
 
     private void InitializeOrderUI()
     {
-        for (int i = 0; i < currentFruitTypesInOrder.Length; i++)
+        for (int i = 0; i < currentFruitAmountsInOrder.Length; i++)
         {
             if(currentFruitAmountsInOrder[i]==0)
             {
@@ -77,7 +81,7 @@ public class OrderGenerator : MonoBehaviour
 
     private void UpdateOrderUI()
     {
-        for (int i = 0; i < currentFruitTypesInOrder.Length; i++)
+        for (int i = 0; i < currentFruitAmountsInOrder.Length; i++)
         {
             fruitAmountText[i].text = "x" + (currentFruitAmountsInOrder[i] - basket.fruitInBasket[i]).ToString();
         }
@@ -96,6 +100,12 @@ public class OrderGenerator : MonoBehaviour
 
     public void CheckBasket()
     {
+        if(currentPlayerPenalties>=3)
+        {
+            Debug.Log("You lose this order because you got 3 penalties");
+            StartCoroutine(GenerateRandomOrder());
+        }
+
         for (int i = 0; i < currentFruitAmountsInOrder.Length; i++)
         {
             if(basket.fruitInBasket[i] >= currentFruitAmountsInOrder[i])
@@ -125,6 +135,34 @@ public class OrderGenerator : MonoBehaviour
         }
     }
 
+    public void SetNextFruitOnOrder()
+    {
+        if(currentFruitAmountsInOrder[0] >= 1)
+        {
+            nextFruitOnTicket = FruitType.Apple;
+        }
+        else if(currentFruitAmountsInOrder[1] >= 1)
+        {
+            nextFruitOnTicket = FruitType.Banana;
+        }
+        else if(currentFruitAmountsInOrder[2] >= 1)
+        {
+            nextFruitOnTicket = FruitType.Mango;
+        }
+        else if(currentFruitAmountsInOrder[3]>= 1)
+        {
+            nextFruitOnTicket = FruitType.Orange;
+        }
+        else if(currentFruitAmountsInOrder[4] >= 1)
+        {
+            nextFruitOnTicket = FruitType.Peach;
+        }
+        else
+        {
+            Debug.Log("Order is complete.");
+        }
+    }
+
     private IEnumerator BounceTicketIn()
     {
         Tween bounceIn = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
@@ -137,6 +175,9 @@ public class OrderGenerator : MonoBehaviour
         Tween bounceOut = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
             .SetEase(OutAnimationCurve);
         yield return bounceOut.WaitForCompletion();
+
+        currentPlayerPenalties = 0;
+        playerPenalties.UpdatePenaltyIconUI();
     }
 
     private IEnumerator BounceTicketOutThenIn()

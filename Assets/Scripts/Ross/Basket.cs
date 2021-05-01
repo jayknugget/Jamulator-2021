@@ -6,6 +6,7 @@ public class Basket : MonoBehaviour
 {
     FruitInBasketUI fruitInBasketUI;
     OrderGenerator orderGenerator;
+    PlayerPenalties playerPenalties;
 
     public int[] fruitInBasket = new int[5];
 
@@ -14,6 +15,7 @@ public class Basket : MonoBehaviour
     {
         orderGenerator = FindObjectOfType<OrderGenerator>();
         fruitInBasketUI = FindObjectOfType<FruitInBasketUI>();
+        playerPenalties = FindObjectOfType<PlayerPenalties>();
 
     }
 
@@ -29,6 +31,19 @@ public class Basket : MonoBehaviour
     private void ProcessFruit(Fruit caughtFruit)
     {
         fruitInBasket[(int)caughtFruit.fruitType]++;
+
+        if (caughtFruit.fruitType == orderGenerator.nextFruitOnTicket)
+        {
+            orderGenerator.SetNextFruitOnOrder();
+            Debug.Log("This is the correct fruit");
+        }
+        else
+        {
+            orderGenerator.currentPlayerPenalties++;
+            playerPenalties.UpdatePenaltyIconUI();
+            Debug.Log("Penalties: " + orderGenerator.currentPlayerPenalties);
+        }
+
         print(caughtFruit.fruitType);
         orderGenerator.CheckBasket();
         fruitInBasketUI.UpdateFruitAmountText();
