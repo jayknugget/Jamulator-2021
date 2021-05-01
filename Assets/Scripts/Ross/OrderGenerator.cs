@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class OrderGenerator : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class OrderGenerator : MonoBehaviour
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
+        DOTween.Init(true, true, LogBehaviour.Default);
     }
 
     private void Start()
