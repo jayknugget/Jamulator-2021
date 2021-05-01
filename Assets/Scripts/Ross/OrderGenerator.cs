@@ -22,12 +22,15 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] private float TicketTweenYRatio;
     [SerializeField] private float TicketTweenInTime;
     [SerializeField] private float TicketTweenOutTime;
+    [SerializeField] private float InactiveWaitTime;
     [SerializeField] private AnimationCurve InAnimationCurve;
     [SerializeField] private AnimationCurve OutAnimationCurve;
+    private WaitForSeconds InactiveWait;
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
         DOTween.Init(true, true, LogBehaviour.Default);
+        InactiveWait = new WaitForSeconds(InactiveWaitTime);
     }
 
     private void Start()
@@ -102,7 +105,7 @@ public class OrderGenerator : MonoBehaviour
             {
                 if(fruitIcons[i].gameObject.activeSelf)
                 {
-                    fruitIcons[i].gameObject.SetActive(false);
+                    StartCoroutine(WaitToSetInactive(fruitIcons[i].gameObject));
                 }
             }
         }
@@ -148,10 +151,13 @@ public class OrderGenerator : MonoBehaviour
             .SetEase(InAnimationCurve));
         
         yield return bounceOutThenIn.WaitForCompletion();
-        // TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
-        //     .SetEase(OutAnimationCurve);
-        // TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
-        //     .SetEase(InAnimationCurve);
+    }
+
+    private IEnumerator WaitToSetInactive(GameObject objectToInactive)
+    {
+        yield return InactiveWait;
+        objectToInactive.SetActive(false);
+        CheckBasket();
     }
 }
 

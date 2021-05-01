@@ -30,8 +30,8 @@ public class Basket : MonoBehaviour
     {
         fruitInBasket[(int)caughtFruit.fruitType]++;
         print(caughtFruit.fruitType);
-        orderGenerator.CheckBasket();
         fruitInBasketUI.UpdateFruitAmountText();
+        orderGenerator.CheckBasket();
         Destroy(caughtFruit.gameObject);
     }
 
