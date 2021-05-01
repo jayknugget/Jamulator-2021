@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => _instance;
 
     // money
-    private int _totalMoney;
-    private int _dailyMoney;
+    private float _totalMoney;
+    private float _dailyMoney;
     // day counter
     private int _currentDay;
-    private int _totalDays;
+    [SerializeField] private int _totalDays;
     // rent per day
     [SerializeField] private int[] _rents;
     // gravity per day
@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
-        _totalMoney = 0;
-        _dailyMoney = 0;
+        _totalMoney = 0.0f;
+        _dailyMoney = 0.0f;
         _currentDay = 0;
         StartDay();
     }
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         _totalMoney += _dailyMoney;
         _totalMoney -= _rents[_currentDay];
-        if( _totalMoney <= 0 )
+        if( _totalMoney <= 0.0f )
         {
             // LOSER
         }
@@ -74,12 +74,12 @@ public class GameManager : MonoBehaviour
         }
 
         Physics.gravity = new Vector3( 0.0f, -_gravity[_currentDay], 0.0f );
-        _dailyMoney = 0;
+        _dailyMoney = 0.0f;
 
         // Update daily UI stuff
     }
 
-    public void AddMoney( int money )
+    public void AddMoney( float money )
     {
         _dailyMoney += money;
         // update UI
