@@ -16,7 +16,14 @@ public class OrderGenerator : MonoBehaviour
 
     public Image[] fruitIcons;
     public Text[] fruitAmountText;
-
+    [SerializeField] private RectTransform TicketTransform;
+    [SerializeField] private float TicketTweenXRatio;
+    [SerializeField] private float TicketTweenXRatioOutside;
+    [SerializeField] private float TicketTweenYRatio;
+    [SerializeField] private float TicketTweenInTime;
+    [SerializeField] private float TicketTweenOutTime;
+    [SerializeField] private AnimationCurve InAnimationCurve;
+    [SerializeField] private AnimationCurve OutAnimationCurve;
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
@@ -25,7 +32,7 @@ public class OrderGenerator : MonoBehaviour
 
     private void Start()
     {
-        GenerateRandomOrder();
+        StartCoroutine(GenerateRandomOrder());
     }
 
     private void Update()
@@ -33,7 +40,7 @@ public class OrderGenerator : MonoBehaviour
         TickOrderTime();
     }
 
-    private void GenerateRandomOrder()
+    private IEnumerator GenerateRandomOrder()
     {
         // There will be parallel arrays to determine what kind of fruit the customer wants
         // and what amount of that fruit they want
@@ -47,8 +54,9 @@ public class OrderGenerator : MonoBehaviour
         int[] fruitAmountsInOrder = { Random.Range(0, 3),Random.Range(0,3),
             Random.Range(0,3), Random.Range(0,3), Random.Range(0,3)};
         currentFruitAmountsInOrder = fruitAmountsInOrder;
-
+        yield return BounceTicketOut();
         InitializeOrderUI();
+        yield return BounceTicketIn();
     }
 
     private void InitializeOrderUI()
@@ -82,7 +90,7 @@ public class OrderGenerator : MonoBehaviour
         if(totalSecondsLeftOnOrder<=0)
         {
             basket.ClearBasket();
-            GenerateRandomOrder();
+            StartCoroutine(GenerateRandomOrder());
         }
     }
 
@@ -110,8 +118,38 @@ public class OrderGenerator : MonoBehaviour
         {
             //GIVE PLAYER MONEY
             Debug.Log("You got all the fruit");
-            GenerateRandomOrder();
+            
+            StartCoroutine(GenerateRandomOrder());
         }
+    }
+
+    private IEnumerator BounceTicketIn()
+    {
+        Tween bounceIn = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
+                            .SetEase(InAnimationCurve);
+        yield return bounceIn.WaitForCompletion();
+    }
+
+    private IEnumerator BounceTicketOut()
+    {
+        Tween bounceOut = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
+            .SetEase(OutAnimationCurve);
+        yield return bounceOut.WaitForCompletion();
+    }
+
+    private IEnumerator BounceTicketOutThenIn()
+    {
+        Sequence bounceOutThenIn = DOTween.Sequence();
+        bounceOutThenIn.Append(TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
+            .SetEase(OutAnimationCurve));
+        bounceOutThenIn.Append(TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
+            .SetEase(InAnimationCurve));
+        
+        yield return bounceOutThenIn.WaitForCompletion();
+        // TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
+        //     .SetEase(OutAnimationCurve);
+        // TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
+        //     .SetEase(InAnimationCurve);
     }
 }
 
