@@ -110,6 +110,7 @@ public class OrderGenerator : MonoBehaviour
         {
             //GIVE PLAYER MONEY
             Debug.Log("You got all the fruit");
+            GameManager.Instance.AddMoney( 1.0f );
             GenerateRandomOrder();
         }
     }

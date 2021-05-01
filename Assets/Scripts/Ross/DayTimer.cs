@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class DayTimer : MonoBehaviour
 {
-    public float totalLevelTimeSeconds = 120;
+    private float _dayLengthSeconds = 120;
+    public float totalLevelTimeSeconds;
     public Text currentLevelTimeText;
 
     private void Awake()
     {
         currentLevelTimeText.text = "0:00";
+        totalLevelTimeSeconds = _dayLengthSeconds;
     }
 
     void Update()
@@ -37,8 +39,22 @@ public class DayTimer : MonoBehaviour
     private void AdjustDayTimerText()
     {
         if (totalLevelTimeSeconds <= 0)
-            return;
+        {
+            GameManager.Instance.EndDay();
+        }
         currentLevelTimeText.text = Mathf.Floor(totalLevelTimeSeconds / 60).ToString("00")
             + ":" + Mathf.FloorToInt(totalLevelTimeSeconds % 60).ToString("00");
+    }
+
+    public void SetDayLength( float timeSeconds )
+    {
+        _dayLengthSeconds = timeSeconds;
+    }
+
+    public void Reset()
+    {
+        // TODO set day time in GM
+        totalLevelTimeSeconds = _dayLengthSeconds;
+        AdjustDayTimerText();
     }
 }
