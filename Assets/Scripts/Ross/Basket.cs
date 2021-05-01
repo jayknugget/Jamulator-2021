@@ -8,6 +8,8 @@ public class Basket : MonoBehaviour
     OrderGenerator orderGenerator;
     PlayerPenalties playerPenalties;
 
+    public GameObject explosionFX;
+
     public int[] fruitInBasket = new int[5];
 
 
@@ -25,6 +27,16 @@ public class Basket : MonoBehaviour
         {
             Fruit newFruit = other.gameObject.GetComponent<Fruit>();
             ProcessFruit(newFruit);
+        }
+        else if(other.tag == "Hazard")
+        {
+            orderGenerator.currentPlayerPenalties = 3;
+            playerPenalties.UpdatePenaltyIconUI();
+            orderGenerator.CheckBasket();
+            GameObject activeExplosionFX = Instantiate(explosionFX, other.transform) as GameObject;
+            activeExplosionFX.transform.SetParent(null);
+            Destroy(activeExplosionFX, 1f);
+            Destroy(other.gameObject);
         }
     }
 

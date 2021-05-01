@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 502767276725803738}
   - component: {fileID: 502767276725803741}
   - component: {fileID: 502767276725803740}
+  - component: {fileID: 691705139}
   m_Layer: 0
   m_Name: Basket
   m_TagString: Untagged
@@ -234,8 +235,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.96333855, y: 0.18624926, z: 0.89110017}
-  m_Center: {x: 0.0050231516, y: 0.14672256, z: -0.006758094}
+  m_Size: {x: 0.6806804, y: 0.18624926, z: 0.60849774}
+  m_Center: {x: 0.002608776, y: 0.14672256, z: 0.007618606}
 --- !u!114 &502767276725803740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,12 +249,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df040a4c682d482ab02d48d2e8e78e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruit1Total: 0
-  fruit2Total: 0
-  fruit3Total: 0
-  fruit4Total: 0
-  fruit5Total: 0
+  explosionFX: {fileID: 3493761058693933265, guid: a817a52e39bc84679a1fe3a28c84035b,
+    type: 3}
   fruitInBasket: 0000000000000000000000000000000000000000
+--- !u!65 &691705139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502767276725803739}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03115201, y: 1.0152221, z: 1}
+  m_Center: {x: 0.60971856, y: 0.2915945, z: 0}
 --- !u!1 &502767276860787480
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502767276860787480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.006, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 502767276725803738}
@@ -561,7 +572,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502767277458831386}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.25, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

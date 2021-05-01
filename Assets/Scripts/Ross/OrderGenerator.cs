@@ -27,14 +27,11 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] private float InactiveWaitTime;
     [SerializeField] private AnimationCurve InAnimationCurve;
     [SerializeField] private AnimationCurve OutAnimationCurve;
-<<<<<<< HEAD
 
     public FruitType nextFruitOnTicket;
     public FruitType[] fruitTypesOnTicket;
 
-=======
     private WaitForSeconds InactiveWait;
->>>>>>> 65262d55aebb65b8fd80ab4125ab16dec4aca2f5
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
@@ -108,7 +105,6 @@ public class OrderGenerator : MonoBehaviour
     {
         if(currentPlayerPenalties>=3)
         {
-            Debug.Log("You lose this order because you got 3 penalties");
             StartCoroutine(GenerateRandomOrder());
         }
 
@@ -132,9 +128,7 @@ public class OrderGenerator : MonoBehaviour
             && !fruitIcons[3].gameObject.activeSelf
             && !fruitIcons[4].gameObject.activeSelf)
         {
-            //GIVE PLAYER MONEY
-            Debug.Log("You got all the fruit");
-            
+                        
             StartCoroutine(GenerateRandomOrder());
             GameManager.Instance.AddMoney( 1.0f );
             GenerateRandomOrder();
