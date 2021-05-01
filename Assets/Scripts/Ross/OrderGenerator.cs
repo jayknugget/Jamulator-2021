@@ -120,6 +120,8 @@ public class OrderGenerator : MonoBehaviour
             Debug.Log("You got all the fruit");
             
             StartCoroutine(GenerateRandomOrder());
+            GameManager.Instance.AddMoney( 1.0f );
+            GenerateRandomOrder();
         }
     }
 
