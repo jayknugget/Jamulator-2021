@@ -45,8 +45,8 @@ public class Basket : MonoBehaviour
         }
 
         print(caughtFruit.fruitType);
-        orderGenerator.CheckBasket();
         fruitInBasketUI.UpdateFruitAmountText();
+        orderGenerator.CheckBasket();
         Destroy(caughtFruit.gameObject);
     }
 

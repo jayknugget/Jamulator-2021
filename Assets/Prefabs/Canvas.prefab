@@ -2050,12 +2050,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d653fd02747f643b0901b42cc823ef44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderGenerator: {fileID: 6361996315018647802}
   fruitAmountTexts:
   - {fileID: 6361996314097803970}
   - {fileID: 6361996315224504556}
   - {fileID: 6361996313437840799}
   - {fileID: 6361996313543592588}
   - {fileID: 6361996314906296103}
+  FruitIconPulseScale: 1.385
+  FruitIconPulseTime: 0.18
+  FruitIconPulseIn:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FruitIconPulseOut:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6361996314906296101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2336,7 @@ MonoBehaviour:
   TicketTweenYRatio: 0.7
   TicketTweenInTime: 0.5
   TicketTweenOutTime: 0.5
+  InactiveWaitTime: 0.36
   InAnimationCurve:
     serializedVersion: 2
     m_Curve:
