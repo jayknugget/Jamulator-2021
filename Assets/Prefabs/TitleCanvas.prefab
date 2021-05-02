@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonHoverScale: 1.252
   ButtonHoverScaleTime: 0.067
-  ButtonDropdownTime: 0.382
+  ButtonDropdownTime: 0.383
   ButtonDropdownWaitTime: 0.874
   TimeGapBetweenEachDrop: 0.126
   ButtonDropdownCurve:
@@ -268,6 +268,67 @@ MonoBehaviour:
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ButtonDropdownSquashFactor: 0.381
+  ButtonDropdownScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.97047657
+      inSlope: 0.42277536
+      outSlope: 0.42277536
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.54470783
+      value: -0.7401875
+      inSlope: 0.34629914
+      outSlope: 1.1267933
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.14694093
+      outWeight: 0.3822294
+    - serializedVersion: 3
+      time: 0.7
+      value: 0
+      inSlope: 4.7664194
+      outSlope: 0.3422121
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8619687
+    - serializedVersion: 3
+      time: 0.8052992
+      value: 0.6102197
+      inSlope: 0.0060283537
+      outSlope: 0.0060283537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.102443844
+      outWeight: 0.41999087
+    - serializedVersion: 3
+      time: 0.9227377
+      value: 0.0006335005
+      inSlope: -0.09363834
+      outSlope: -0.09363834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.00819935
+      outSlope: -0.00819935
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
