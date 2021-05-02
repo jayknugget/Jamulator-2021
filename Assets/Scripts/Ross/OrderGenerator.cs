@@ -130,7 +130,7 @@ public class OrderGenerator : MonoBehaviour
                 
                 if(fruitIcons[i].gameObject.activeSelf)
                 {
-                    yield return WaitToSetInactive(fruitIcons[i].gameObject);
+                    StartCoroutine(WaitToSetInactive(fruitIcons[i].gameObject));
                 }
             }
         }
@@ -141,7 +141,7 @@ public class OrderGenerator : MonoBehaviour
         //     currentOrderStatus+= (FruitType)i + ": " + currentFruitAmountsInOrder[i] + " ";
         // }
         // print(currentOrderStatus);
-
+        yield return null;
         UpdateOrderUI();
 
 
