@@ -112,6 +112,7 @@ public class OrderGenerator : MonoBehaviour
         {
             if(basket.fruitInBasket[i] >= currentFruitAmountsInOrder[i])
             {
+                
                 if(fruitIcons[i].gameObject.activeSelf)
                 {
                     StartCoroutine(WaitToSetInactive(fruitIcons[i].gameObject));
@@ -163,6 +164,7 @@ public class OrderGenerator : MonoBehaviour
         {
             Debug.Log("Order is complete.");
         }
+        
     }
 
     private IEnumerator BounceTicketIn()
