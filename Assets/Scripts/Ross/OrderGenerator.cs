@@ -27,14 +27,11 @@ public class OrderGenerator : MonoBehaviour
     [SerializeField] private float InactiveWaitTime;
     [SerializeField] private AnimationCurve InAnimationCurve;
     [SerializeField] private AnimationCurve OutAnimationCurve;
-<<<<<<< HEAD
 
     public FruitType nextFruitOnTicket;
     public FruitType[] fruitTypesOnTicket;
 
-=======
     private WaitForSeconds InactiveWait;
->>>>>>> 65262d55aebb65b8fd80ab4125ab16dec4aca2f5
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
