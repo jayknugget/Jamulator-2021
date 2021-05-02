@@ -15,10 +15,13 @@ public class DayTimer : MonoBehaviour
         // currentLevelTimeText.text = "0:00";
         currentLevelTimeText.text = "";
         totalLevelTimeSeconds = _dayLengthSeconds;
+        GameManager.Instance.Timer = this;
     }
 
-    private void Start() {
+    private void Start() 
+    {
         timerArrow.RotateAround(timerArrow.position, Vector3.forward, 72);
+        GameManager.Instance.StartDay();
     }
 
     void Update()

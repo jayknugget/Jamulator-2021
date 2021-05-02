@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
 
-        Instance.Reset();
+        DontDestroyOnLoad( _instance );
+        // Instance.Reset();
     }
 
     // Start is called before the first frame update
@@ -55,34 +57,38 @@ public class GameManager : MonoBehaviour
         _totalMoney = 0.0f;
         _dailyMoney = 0.0f;
         _currentDay = 0;
-        Timer.SetDayLength( DayLengthSeconds );
-        StartDay();
+        // StartDay();
     }
 
     public void EndDay()
     {
         _totalMoney += _dailyMoney;
         _totalMoney -= _rents[_currentDay];
-        if( _totalMoney <= 0.0f )
-        {
-            // LOSER
-            Debug.Log( "LOSER" );
-        }
+//         if( _totalMoney <= 0.0f )
+//         {
+//             // LOSER
+//             Debug.Log( "LOSER" );
+//             SceneManager.LoadScene( "Lose" );
+//         }
 
         _currentDay++;
         // anything between eod and next day?
-        StartDay();
+        SceneManager.LoadScene( "EndOfDay" );
+        // StartDay();
     }
 
     public void StartDay()
     {
-        if( _currentDay == _totalDays )
-        {
-            // WINNER
-            Debug.Log( "WINNER" );
-        }
+//         if( _currentDay == _totalDays )
+//         {
+//             // WINNER
+//             Debug.Log( "WINNER" );
+//             SceneManager.LoadScene( "Win" );
+//         }
 
-        Physics.gravity = new Vector3( 0.0f, -_gravity[_currentDay], 0.0f );
+        // Timer.SetDayLength( DayLengthSeconds );
+
+        // Physics.gravity = new Vector3( 0.0f, -_gravity[_currentDay], 0.0f );
         _dailyMoney = 0.0f;
 
         // Update daily UI stuff
