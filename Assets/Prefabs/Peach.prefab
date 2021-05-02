@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2792176896029929499}
   - component: {fileID: 4768606144347231022}
   m_Layer: 0
-  m_Name: Fruit3
+  m_Name: Peach
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2792176896029929510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10.5, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.283302, y: 0.283302, z: 0.283302}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2792176896029929510}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2264516271919738503, guid: bbadfe525a7bd3d4ea23f1eb49388403, type: 3}
 --- !u!23 &2792176896029929508
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af88bb193df8c4180862a4065cc0591d, type: 2}
+  - {fileID: 2160515706761932904, guid: 1e0f1584511ff9344b45f45166f154dc, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,8 +93,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.2739619
+  m_Center: {x: 0, y: 0, z: 0.38128167}
 --- !u!54 &2792176896029929499
 Rigidbody:
   m_ObjectHideFlags: 0
