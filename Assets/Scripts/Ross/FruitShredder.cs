@@ -9,15 +9,15 @@ public class FruitShredder : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Fruit")
+        if(other.tag == "Fruit" || other.tag == "Hazard")
         {
             StartCoroutine(FruitShredderCoroutine(other.gameObject));
         }
     }
 
-    private IEnumerator FruitShredderCoroutine(GameObject fruit)
+    private IEnumerator FruitShredderCoroutine(GameObject collision)
     {
         yield return new WaitForSeconds(fruitShreddingBuffer);
-        Destroy(fruit);
+        Destroy(collision);
     }
 }
