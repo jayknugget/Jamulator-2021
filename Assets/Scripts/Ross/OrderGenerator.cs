@@ -67,7 +67,7 @@ public class OrderGenerator : MonoBehaviour
         int[] fruitAmountsInOrder = { Random.Range(0, 3),Random.Range(0,3),
             Random.Range(0,3), Random.Range(0,3), Random.Range(0,3)};
         currentFruitAmountsInOrder = fruitAmountsInOrder;
-        SetNextFruitOnOrder();
+        // SetNextFruitOnOrder();
         string currentOrderStatus = "Generated Order: ";
         for(int i = 0; i < currentFruitAmountsInOrder.Length; i++)
         {
@@ -135,12 +135,12 @@ public class OrderGenerator : MonoBehaviour
             }
         }
         
-        string currentOrderStatus = "Order Left";
-        for(int i = 0; i < currentFruitAmountsInOrder.Length; i++)
-        {
-            currentOrderStatus+= (FruitType)i + ": " + currentFruitAmountsInOrder[i] + " ";
-        }
-        print(currentOrderStatus);
+        // string currentOrderStatus = "Order Left";
+        // for(int i = 0; i < currentFruitAmountsInOrder.Length; i++)
+        // {
+        //     currentOrderStatus+= (FruitType)i + ": " + currentFruitAmountsInOrder[i] + " ";
+        // }
+        // print(currentOrderStatus);
 
         UpdateOrderUI();
 

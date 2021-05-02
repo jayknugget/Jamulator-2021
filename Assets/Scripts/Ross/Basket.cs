@@ -47,10 +47,10 @@ public class Basket : MonoBehaviour
         fruitInBasketUI.UpdateFruitAmountText();
         
         print("caught a " + caughtFruit.fruitType);
-        if (caughtFruit.fruitType == orderGenerator.nextFruitOnTicket)
+        if (orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType] > 0)
         {
             orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType]--;
-            orderGenerator.SetNextFruitOnOrder();
+            // orderGenerator.SetNextFruitOnOrder();
             Debug.Log("This is the correct fruit");
         }
         else
