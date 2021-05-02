@@ -8,11 +8,17 @@ public class DayTimer : MonoBehaviour
     private float _dayLengthSeconds = 120;
     public float totalLevelTimeSeconds;
     public Text currentLevelTimeText;
+    [SerializeField] private RectTransform timerArrow;
 
     private void Awake()
     {
-        currentLevelTimeText.text = "0:00";
+        // currentLevelTimeText.text = "0:00";
+        currentLevelTimeText.text = "";
         totalLevelTimeSeconds = _dayLengthSeconds;
+    }
+
+    private void Start() {
+        timerArrow.RotateAround(timerArrow.position, Vector3.forward, 72);
     }
 
     void Update()
@@ -42,8 +48,9 @@ public class DayTimer : MonoBehaviour
         {
             GameManager.Instance.EndDay();
         }
-        currentLevelTimeText.text = Mathf.Floor(totalLevelTimeSeconds / 60).ToString("00")
-            + ":" + Mathf.FloorToInt(totalLevelTimeSeconds % 60).ToString("00");
+        // currentLevelTimeText.text = Mathf.Floor(totalLevelTimeSeconds / 60).ToString("00")
+        //     + ":" + Mathf.FloorToInt(totalLevelTimeSeconds % 60).ToString("00");
+        timerArrow.RotateAround(timerArrow.position, Vector3.forward, -Time.deltaTime * 1.2f);
     }
 
     public void SetDayLength( float timeSeconds )
