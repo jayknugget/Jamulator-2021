@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 2;
-    [SerializeField]
-    private Animator animator;
+    [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem dustF;
+    [SerializeField] private ParticleSystem dustB;
+
 
     private void FixedUpdate()
     {
@@ -34,5 +36,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Forward_R", false);
             animator.SetBool("Backward_L", false);
         }
+    }
+
+    public void PlayDustFEvent()
+    {
+        dustF.Play();
+    }
+
+        public void PlayDustBEvent()
+    {
+        dustB.Play();
     }
 }
