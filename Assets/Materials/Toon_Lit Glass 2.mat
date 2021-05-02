@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Toon_Lit Glass 2
+  m_Shader: {fileID: 4800000, guid: 8215852daa392f84295e91995b0fa20e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampS:
+        m_Texture: {fileID: 2800000, guid: 8723a17f945ae1b40ade1da49a189d8f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _FADE: 0
+    - _FresnelInner: 0
+    - _Offset: 1
+    - _Offset2: 0
+    - _Offset3: -0.54
+    - _Offset4: 0.09
+    - _OutRimCutoff: 0
+    - _OuterRimCutoff: 1
+    - _RIM: 0
+    - _RimPower: 4
+    - _RimPower2: 0.76
+    - _SpecOffset: 0.771
+    - _SpecSize: 0.95
+    - _SpecSize2: 0.972
+    - _TopBottomOffset: 1.19
+    - _ViewSpec: 2.21
+    m_Colors:
+    - _BottomColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.9622642, b: 0.9245284, a: 0.015686275}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor2: {r: 0, g: 0, b: 0, a: 1}
+    - _SColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

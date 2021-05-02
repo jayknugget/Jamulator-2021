@@ -319,8 +319,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6079886321592895344, guid: 20d1c2f13c41c514d8da49b60a2800fd,
         type: 3}
-      propertyPath: moveWithTransform
+      propertyPath: prewarm
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079886321592895344, guid: 20d1c2f13c41c514d8da49b60a2800fd,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6079886321592895344, guid: 20d1c2f13c41c514d8da49b60a2800fd,
         type: 3}
