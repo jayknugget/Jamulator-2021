@@ -10,9 +10,13 @@ public class Fruit : MonoBehaviour
 {
     public float baseValue;
     public FruitType fruitType;
-
     void Update()
     {
+        RotateFruit();
+    }
 
+    void RotateFruit()
+    {
+        transform.Rotate( -0.5f, 0.5f, -0.5f);
     }
 }
