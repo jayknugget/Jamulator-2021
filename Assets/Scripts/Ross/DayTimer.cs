@@ -31,7 +31,7 @@ public class DayTimer : MonoBehaviour
         if(totalLevelTimeSeconds <= 0)
         {
             totalLevelTimeSeconds = 0;
-            currentLevelTimeText.text = "00:00";
+            // currentLevelTimeText.text = "00:00";
             return;
         }
         else
