@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum FruitType{
-    Apple, Banana, Peach, Orange, Mango
+    Apple, Banana, Mango, Orange, Peach
 }
 
 public class Fruit : MonoBehaviour

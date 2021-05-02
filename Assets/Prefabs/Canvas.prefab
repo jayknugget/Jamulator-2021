@@ -1331,7 +1331,7 @@ GameObject:
   - component: {fileID: 6361996314127282363}
   - component: {fileID: 6361996314127282362}
   m_Layer: 5
-  m_Name: Fruit5 Text
+  m_Name: Fruit3 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 6361996314724310510}
   - component: {fileID: 6361996314724310509}
   m_Layer: 5
-  m_Name: Fruit3 Text
+  m_Name: Fruit5 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2321,15 +2321,15 @@ MonoBehaviour:
   fruitIcons:
   - {fileID: 6361996314729432215}
   - {fileID: 6361996314053422542}
-  - {fileID: 6361996313395850642}
-  - {fileID: 6361996314578207174}
   - {fileID: 6361996313104485905}
+  - {fileID: 6361996314578207174}
+  - {fileID: 6361996313395850642}
   fruitAmountText:
   - {fileID: 6361996314185240402}
   - {fileID: 6361996314129372173}
-  - {fileID: 6361996314724310509}
-  - {fileID: 6361996314921671501}
   - {fileID: 6361996314127282362}
+  - {fileID: 6361996314921671501}
+  - {fileID: 6361996314724310509}
   TicketTransform: {fileID: 6361996315018647801}
   TicketTweenXRatio: 0.92
   TicketTweenXRatioOutside: 1.3

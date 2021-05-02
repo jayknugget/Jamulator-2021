@@ -45,6 +45,7 @@ public class OrderGenerator : MonoBehaviour
         currentPlayerPenalties = 0;
         playerPenalties.UpdatePenaltyIconUI();
         StartCoroutine(GenerateRandomOrder());
+        
     }
 
     private void Update()
@@ -61,9 +62,17 @@ public class OrderGenerator : MonoBehaviour
             Random.Range(0,3), Random.Range(0,3), Random.Range(0,3)};
         currentFruitAmountsInOrder = fruitAmountsInOrder;
         SetNextFruitOnOrder();
+        string currentOrderStatus = "Generated Order: ";
+        for(int i = 0; i < currentFruitAmountsInOrder.Length; i++)
+        {
+            currentOrderStatus+= (FruitType)i + ": " +currentFruitAmountsInOrder[i] + " ";
+        }
+        print(currentOrderStatus);
         yield return BounceTicketOut();
         InitializeOrderUI();
         yield return BounceTicketIn();
+        
+        
     }
 
     private void InitializeOrderUI()
@@ -77,7 +86,7 @@ public class OrderGenerator : MonoBehaviour
             else
             {
                 fruitIcons[i].gameObject.SetActive(true);
-                fruitAmountText[i].text = "x" + (currentFruitAmountsInOrder[i] - basket.fruitInBasket[i]).ToString();
+                fruitAmountText[i].text = "x" + (currentFruitAmountsInOrder[i]).ToString();
             }
         }
     }
@@ -86,7 +95,7 @@ public class OrderGenerator : MonoBehaviour
     {
         for (int i = 0; i < currentFruitAmountsInOrder.Length; i++)
         {
-            fruitAmountText[i].text = "x" + (currentFruitAmountsInOrder[i] - basket.fruitInBasket[i]).ToString();
+            fruitAmountText[i].text = "x" + (currentFruitAmountsInOrder[i]).ToString();
         }
     }
 
@@ -101,7 +110,7 @@ public class OrderGenerator : MonoBehaviour
         }
     }
 
-    public void CheckBasket()
+    public IEnumerator CheckBasket()
     {
         if(currentPlayerPenalties>=3)
         {
@@ -110,15 +119,22 @@ public class OrderGenerator : MonoBehaviour
 
         for (int i = 0; i < currentFruitAmountsInOrder.Length; i++)
         {
-            if(basket.fruitInBasket[i] >= currentFruitAmountsInOrder[i])
+            if(currentFruitAmountsInOrder[i] <= 0)
             {
                 
                 if(fruitIcons[i].gameObject.activeSelf)
                 {
-                    StartCoroutine(WaitToSetInactive(fruitIcons[i].gameObject));
+                    yield return WaitToSetInactive(fruitIcons[i].gameObject);
                 }
             }
         }
+        
+        string currentOrderStatus = "Order Left";
+        for(int i = 0; i < currentFruitAmountsInOrder.Length; i++)
+        {
+            currentOrderStatus+= (FruitType)i + ": " + currentFruitAmountsInOrder[i] + " ";
+        }
+        print(currentOrderStatus);
 
         UpdateOrderUI();
 
@@ -140,6 +156,7 @@ public class OrderGenerator : MonoBehaviour
 
     public void SetNextFruitOnOrder()
     {
+        
         if(currentFruitAmountsInOrder[0] >= 1)
         {
             nextFruitOnTicket = FruitType.Apple;
@@ -164,7 +181,7 @@ public class OrderGenerator : MonoBehaviour
         {
             Debug.Log("Order is complete.");
         }
-        
+        print("next fruit: " + nextFruitOnTicket);
     }
 
     private IEnumerator BounceTicketIn()
@@ -199,7 +216,6 @@ public class OrderGenerator : MonoBehaviour
     {
         yield return InactiveWait;
         objectToInactive.SetActive(false);
-        CheckBasket();
     }
 }
 
