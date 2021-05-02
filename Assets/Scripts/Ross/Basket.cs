@@ -9,6 +9,7 @@ public class Basket : MonoBehaviour
     PlayerPenalties playerPenalties;
 
     public GameObject explosionFX;
+    public GameObject successFX;
 
     public int[] fruitInBasket = new int[5];
 

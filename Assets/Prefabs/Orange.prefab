@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5995416352862224651}
   - component: {fileID: 5014945558298535856}
   m_Layer: 0
-  m_Name: Fruit2
+  m_Name: Orange
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5995416352862224694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10.5, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.367728, y: 0.367728, z: 0.367728}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995416352862224694}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -4542256552269943631, guid: 428c5356cf314264d8983f5c29657ff5, type: 3}
 --- !u!23 &5995416352862224692
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cb0f1238e48e4a3ab0af800818e07d7, type: 2}
+  - {fileID: 2160515706761932904, guid: bbadfe525a7bd3d4ea23f1eb49388403, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.146393
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5995416352862224651
 Rigidbody:

@@ -128,7 +128,9 @@ public class OrderGenerator : MonoBehaviour
             && !fruitIcons[3].gameObject.activeSelf
             && !fruitIcons[4].gameObject.activeSelf)
         {
-                        
+            GameObject successFX = Instantiate(basket.successFX, basket.transform)as GameObject;
+            Destroy(successFX, 1f);
+
             StartCoroutine(GenerateRandomOrder());
             GameManager.Instance.AddMoney( 1.0f );
             GenerateRandomOrder();
