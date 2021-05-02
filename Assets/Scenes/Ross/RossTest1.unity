@@ -767,6 +767,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2090679920}
     m_Modifications:
+    - target: {fileID: 6005510235177512568, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: maximumTimeBetweenDrops
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510235177512568, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: minimumTimeBetweenDrops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510235519377419, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: maximumTimeBetweenDrops
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510235519377419, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: minimumTimeBetweenDrops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510235981908765, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: maximumTimeBetweenDrops
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510235981908765, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: minimumTimeBetweenDrops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510236012865815, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: maximumTimeBetweenDrops
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005510236012865815, guid: 90fab6e00742b4043a6b8dce4ba50425,
+        type: 3}
+      propertyPath: minimumTimeBetweenDrops
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6005510236335609249, guid: 90fab6e00742b4043a6b8dce4ba50425,
         type: 3}
       propertyPath: m_Name
@@ -1125,6 +1165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361996315018647802, guid: 3d92ecdd5a8a641f68317bede9094de8,
+        type: 3}
+      propertyPath: startingSecondsLeftOnOrder
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6361996315110743392, guid: 3d92ecdd5a8a641f68317bede9094de8,
         type: 3}
