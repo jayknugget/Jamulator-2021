@@ -168,35 +168,35 @@ public class OrderGenerator : MonoBehaviour
         }
         return allZero;
     }
-    public void SetNextFruitOnOrder()
-    {
+    // public void SetNextFruitOnOrder()
+    // {
         
-        if(currentFruitAmountsInOrder[0] >= 1)
-        {
-            nextFruitOnTicket = FruitType.Apple;
-        }
-        else if(currentFruitAmountsInOrder[1] >= 1)
-        {
-            nextFruitOnTicket = FruitType.Banana;
-        }
-        else if(currentFruitAmountsInOrder[2] >= 1)
-        {
-            nextFruitOnTicket = FruitType.Mango;
-        }
-        else if(currentFruitAmountsInOrder[3]>= 1)
-        {
-            nextFruitOnTicket = FruitType.Orange;
-        }
-        else if(currentFruitAmountsInOrder[4] >= 1)
-        {
-            nextFruitOnTicket = FruitType.Peach;
-        }
-        else
-        {
-            Debug.Log("Order is complete.");
-        }
-        print("next fruit: " + nextFruitOnTicket);
-    }
+    //     if(currentFruitAmountsInOrder[0] >= 1)
+    //     {
+    //         nextFruitOnTicket = FruitType.Apple;
+    //     }
+    //     else if(currentFruitAmountsInOrder[1] >= 1)
+    //     {
+    //         nextFruitOnTicket = FruitType.Banana;
+    //     }
+    //     else if(currentFruitAmountsInOrder[2] >= 1)
+    //     {
+    //         nextFruitOnTicket = FruitType.Mango;
+    //     }
+    //     else if(currentFruitAmountsInOrder[3]>= 1)
+    //     {
+    //         nextFruitOnTicket = FruitType.Orange;
+    //     }
+    //     else if(currentFruitAmountsInOrder[4] >= 1)
+    //     {
+    //         nextFruitOnTicket = FruitType.Peach;
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Order is complete.");
+    //     }
+    //     print("next fruit: " + nextFruitOnTicket);
+    // }
 
     private IEnumerator BounceTicketIn()
     {

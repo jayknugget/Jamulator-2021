@@ -18,15 +18,13 @@ public class FruitSpawner : MonoBehaviour
         Instantiate(fruitPrefabsToSpawn[Random.Range(0, fruitPrefabsToSpawn.Length)], transform.position, Quaternion.identity);
     }
 
-    private void CallNewDrop()
-    {
-        StartCoroutine(FruitSpawningCoroutine());
-    }
 
     private IEnumerator FruitSpawningCoroutine()
     {
-        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenDrops, maximumTimeBetweenDrops));
-        SpawnAFruit();
-        CallNewDrop();
+        while(true)
+        {
+            yield return new WaitForSeconds(Random.Range(minimumTimeBetweenDrops, maximumTimeBetweenDrops));
+            SpawnAFruit();
+        }
     }
 }
