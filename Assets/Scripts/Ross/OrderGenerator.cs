@@ -19,14 +19,20 @@ public class OrderGenerator : MonoBehaviour
     public Image[] fruitIcons;
     public Text[] fruitAmountText;
     [SerializeField] private RectTransform TicketTransform;
-    [SerializeField] private float TicketTweenXRatio;
-    [SerializeField] private float TicketTweenXRatioOutside;
-    [SerializeField] private float TicketTweenYRatio;
-    [SerializeField] private float TicketTweenInTime;
-    [SerializeField] private float TicketTweenOutTime;
-    [SerializeField] private float InactiveWaitTime;
+    [SerializeField][Range(0,1)] private float TicketTweenXRatio;
+    [SerializeField][Range(0,1)] private float TicketTweenXRatioOutside;
+    [SerializeField][Range(0,1)] private float TicketTweenYRatio;
+    [SerializeField][Range(0,4)] private float TicketTweenInTime;
+    [SerializeField][Range(0,4)] private float TicketTweenOutTime;
+    [SerializeField][Range(0,4)] private float InactiveWaitTime;
     [SerializeField] private AnimationCurve InAnimationCurve;
     [SerializeField] private AnimationCurve OutAnimationCurve;
+    [SerializeField] private float RotateAmount;
+    [SerializeField][Range(0,2)] private float RotateTime;
+    [SerializeField][Range(0,10)] private int RotateVibrato;
+    [SerializeField][Range(0,1)] private float RotateElasticity;
+    [SerializeField] private AnimationCurve InRotateAnimationCurve;
+    [SerializeField] private AnimationCurve OutRotateAnimationCurve;
 
     public FruitType nextFruitOnTicket;
     public FruitType[] fruitTypesOnTicket;
@@ -186,15 +192,23 @@ public class OrderGenerator : MonoBehaviour
 
     private IEnumerator BounceTicketIn()
     {
-        Tween bounceIn = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
-                            .SetEase(InAnimationCurve);
+        Sequence bounceIn = DOTween.Sequence();
+        bounceIn.Append(TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatio, Screen.height * TicketTweenYRatio), TicketTweenInTime)
+            .SetEase(InAnimationCurve));
+        bounceIn.Join(TicketTransform.DOPunchRotation(new Vector3(0, 0, RotateAmount), RotateTime, RotateVibrato, RotateElasticity)
+            .SetEase(InRotateAnimationCurve));
         yield return bounceIn.WaitForCompletion();
     }
 
     private IEnumerator BounceTicketOut()
     {
-        Tween bounceOut = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
-            .SetEase(OutAnimationCurve);
+        Sequence bounceOut = DOTween.Sequence();
+        bounceOut.Append(TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
+            .SetEase(OutAnimationCurve));
+        bounceOut.Join(TicketTransform.DOPunchRotation(new Vector3(0, 0, -RotateAmount), TicketTweenOutTime, RotateVibrato, RotateElasticity)
+            .SetEase(OutRotateAnimationCurve));
+        // Tween bounceOut = TicketTransform.DOMove(new Vector2(Screen.width * TicketTweenXRatioOutside, Screen.height * TicketTweenYRatio), TicketTweenOutTime)
+        //     .SetEase(OutAnimationCurve);
         yield return bounceOut.WaitForCompletion();
 
         currentPlayerPenalties = 0;
