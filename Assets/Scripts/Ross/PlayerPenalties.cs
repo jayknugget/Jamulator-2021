@@ -45,16 +45,48 @@ public class PlayerPenalties : MonoBehaviour
         }
     }
 
-    public void ResetPenaltyIconUI()
+    public void UpdateAllPenaltyIconUI()
     {
-
+        for (int i = numPenalties; i < penaltyIcons.Length; i++)
+        {
+            if(orderGenerator.currentPlayerPenalties > i)
+            {
+                if(!penaltyIcons[i].gameObject.activeSelf)
+                {
+                    penaltyIcons[i].gameObject.SetActive(true);
+                }
+                
+            }
+            else
+            {
+                penaltyIcons[i].gameObject.SetActive(false);
+            }
+        }
+        StartCoroutine(SadStampAll());
     }
+
 
     private IEnumerator SadStamp(Image sadFace)
     {
         Sequence stampSequence = DOTween.Sequence();
         stampSequence.Append(sadFace.DOFade(0, stampTime).SetEase(stampOpacityCurve).From());
         stampSequence.Join(sadFace.GetComponent<RectTransform>().DOScale(stampScale, stampTime).SetEase(stampScaleCurve).From());
+        stampSequence.Join(mainCamera.DOShakePosition(.3f,.5f,20,100,true));
+        // stampSequence.Append(mainCamera.DOShakePosition(.3f,3,20,100,true));
+        yield return stampSequence.WaitForCompletion();
+    }
+
+    private IEnumerator SadStampAll()
+    {
+
+        Sequence stampSequence = DOTween.Sequence();
+        stampSequence.AppendInterval(0);
+        foreach(Image sadFace in penaltyIcons)
+        {
+            stampSequence.Join(sadFace.DOFade(0, stampTime).SetEase(stampOpacityCurve).From());
+            stampSequence.Join(sadFace.GetComponent<RectTransform>().DOScale(stampScale, stampTime).SetEase(stampScaleCurve).From());
+        }
+        
         stampSequence.Join(mainCamera.DOShakePosition(.3f,.5f,20,100,true));
         // stampSequence.Append(mainCamera.DOShakePosition(.3f,3,20,100,true));
         yield return stampSequence.WaitForCompletion();

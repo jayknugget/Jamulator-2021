@@ -7,7 +7,7 @@ public class FruitSpawner : MonoBehaviour
     public GameObject [] fruitPrefabsToSpawn;
     public float minimumTimeBetweenDrops;
     public float maximumTimeBetweenDrops;
-
+    [SerializeField] private AnimationCurve probabilities;
     private void Start()
     {
         StartCoroutine(FruitSpawningCoroutine());
@@ -15,7 +15,9 @@ public class FruitSpawner : MonoBehaviour
 
     private void SpawnAFruit()
     {
-        Instantiate(fruitPrefabsToSpawn[Random.Range(0, fruitPrefabsToSpawn.Length)], transform.position, Quaternion.identity);
+        int fruitToSpawn = (int)((fruitPrefabsToSpawn.Length - 1) * probabilities.Evaluate(Random.value));
+        print(fruitToSpawn);
+        Instantiate(fruitPrefabsToSpawn[fruitToSpawn], transform.position, Quaternion.identity);
     }
 
 

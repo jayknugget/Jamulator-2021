@@ -32,7 +32,7 @@ public class Basket : MonoBehaviour
         else if(other.tag == "Hazard")
         {
             orderGenerator.currentPlayerPenalties = 3;
-            playerPenalties.UpdatePenaltyIconUI();
+            playerPenalties.UpdateAllPenaltyIconUI();
             StartCoroutine(orderGenerator.CheckBasket());
             GameObject activeExplosionFX = Instantiate(explosionFX, other.transform) as GameObject;
             activeExplosionFX.transform.SetParent(null);
@@ -46,18 +46,23 @@ public class Basket : MonoBehaviour
         fruitInBasket[(int)caughtFruit.fruitType]++;
         fruitInBasketUI.UpdateFruitAmountText();
         
-        print("caught a " + caughtFruit.fruitType);
-        if (orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType] > 0)
+        // print("caught a " + caughtFruit.fruitType);
+        if (caughtFruit.fruitType != FruitType.Rotten && orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType] > 0)
         {
             orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType]--;
             // orderGenerator.SetNextFruitOnOrder();
-            Debug.Log("This is the correct fruit");
+            // Debug.Log("This is the correct fruit");
+        }
+        else if(caughtFruit.fruitType == FruitType.Rotten)
+        {
+            orderGenerator.currentPlayerPenalties = 3;
+            playerPenalties.UpdatePenaltyIconUI();
         }
         else
         {
             orderGenerator.currentPlayerPenalties++;
             playerPenalties.UpdatePenaltyIconUI();
-            Debug.Log("Penalties: " + orderGenerator.currentPlayerPenalties);
+            // Debug.Log("Penalties: " + orderGenerator.currentPlayerPenalties);
         }
 
         // print(caughtFruit.fruitType);
