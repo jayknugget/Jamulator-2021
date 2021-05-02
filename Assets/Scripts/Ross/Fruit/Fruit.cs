@@ -10,4 +10,9 @@ public class Fruit : MonoBehaviour
 {
     public float baseValue;
     public FruitType fruitType;
+
+    void Update()
+    {
+
+    }
 }
