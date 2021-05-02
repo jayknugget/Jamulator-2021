@@ -145,11 +145,7 @@ public class OrderGenerator : MonoBehaviour
         UpdateOrderUI();
 
 
-        if(!fruitIcons[0].gameObject.activeSelf
-            && !fruitIcons[1].gameObject.activeSelf
-            && !fruitIcons[2].gameObject.activeSelf
-            && !fruitIcons[3].gameObject.activeSelf
-            && !fruitIcons[4].gameObject.activeSelf)
+        if(CheckFruitAmountsArrayIsZero())
         {
             GameObject successFX = Instantiate(basket.successFX, basket.transform)as GameObject;
             Destroy(successFX, 1f);
@@ -159,7 +155,19 @@ public class OrderGenerator : MonoBehaviour
             GenerateRandomOrder();
         }
     }
-
+    private bool CheckFruitAmountsArrayIsZero()
+    {
+        bool allZero = true;
+        foreach (int num in currentFruitAmountsInOrder)
+        {
+            if (num != 0)
+            {
+                allZero = false;
+                break;
+            }
+        }
+        return allZero;
+    }
     public void SetNextFruitOnOrder()
     {
         
