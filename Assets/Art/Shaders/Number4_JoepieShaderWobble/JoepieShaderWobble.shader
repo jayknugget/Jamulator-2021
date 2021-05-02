@@ -1,4 +1,4 @@
-﻿Shader "Custom/JoepieShaderWobble"
+Shader "Custom/JoepieShaderWobble"
 {
 	Properties
 	{
@@ -37,6 +37,7 @@
 		struct Input
 		{
 			fixed2 uv_MainTex;
+			float3 vertexColor; // Vertex color stored here by vert() method
 		};
 
 
@@ -48,6 +49,7 @@
 			v.vertex.x += sin(v.vertex.y * _YDiv + round(_Time.y * _TimeInfluence)) * _NormalOffset;
 			v.vertex.y += sin(v.vertex.x * _YDiv + round(_Time.y * _TimeInfluence)) * _NormalOffset;
 			v.vertex.z += sin(v.vertex.y * _YDiv + round(_Time.y * _TimeInfluence)) * _NormalOffset;
+			o.vertexColor = v.color; // Save the Vertex Color in the Input for the surf() method
 		}
 
 		fixed4 LightingUnlit(SurfaceOutput s, fixed3 lightDir, fixed atten)
@@ -63,11 +65,11 @@
 			return c * _LightColor0;
 		}
 
-		void surf(Input i, inout SurfaceOutput o)
+		void surf(Input IN, inout SurfaceOutput o)
 		{
 			fixed4 c = _Color;
 
-			o.Albedo = c.rgb;
+			o.Albedo = _Color.rgb * IN.vertexColor; // Combine normal color with the vertex color
 			o.Alpha = 1;
 		}
 		ENDCG
