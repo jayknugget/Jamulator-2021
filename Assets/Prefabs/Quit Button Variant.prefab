@@ -10,12 +10,38 @@ PrefabInstance:
     - target: {fileID: 2411509600873643640, guid: 441bfb419c148fa41856eb750e1b636c,
         type: 3}
       propertyPath: m_Text
-      value: Quit
+      value: quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411509600873643640, guid: 441bfb419c148fa41856eb750e1b636c,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 6a6cad7ea4a706243a259ce60b0810cf,
+        type: 3}
+    - target: {fileID: 2411509600873643640, guid: 441bfb419c148fa41856eb750e1b636c,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411509600873643640, guid: 441bfb419c148fa41856eb750e1b636c,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411509600873643640, guid: 441bfb419c148fa41856eb750e1b636c,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411509600873643640, guid: 441bfb419c148fa41856eb750e1b636c,
+        type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2411509602363744033, guid: 441bfb419c148fa41856eb750e1b636c,
         type: 3}
       propertyPath: m_Name
-      value: Quit Button
+      value: Quit Button Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2411509602363744038, guid: 441bfb419c148fa41856eb750e1b636c,
         type: 3}
