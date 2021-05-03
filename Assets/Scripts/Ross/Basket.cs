@@ -51,13 +51,10 @@ public class Basket : MonoBehaviour
         fruitInBasket[(int)caughtFruit.fruitType]++;
         fruitInBasketUI.UpdateFruitAmountText();
         
-        // print("caught a " + caughtFruit.fruitType);
         if (caughtFruit.fruitType != FruitType.Rotten && orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType] > 0)
         {
             source.PlayOneShot(fruit);
             orderGenerator.currentFruitAmountsInOrder[(int)caughtFruit.fruitType]--;
-            // orderGenerator.SetNextFruitOnOrder();
-            // Debug.Log("This is the correct fruit");
         }
         else if(caughtFruit.fruitType == FruitType.Rotten)
         {
@@ -70,10 +67,8 @@ public class Basket : MonoBehaviour
             source.PlayOneShot(stamp);
             orderGenerator.currentPlayerPenalties++;
             playerPenalties.UpdatePenaltyIconUI();
-            // Debug.Log("Penalties: " + orderGenerator.currentPlayerPenalties);
         }
 
-        // print(caughtFruit.fruitType);
         StartCoroutine(orderGenerator.CheckBasket());
         Destroy(caughtFruit.gameObject);
     }

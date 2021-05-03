@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _totalDays;
     // rent per day
     [SerializeField] private int[] _rents;
-    // gravity per day
-    [SerializeField] private float[] _gravity;
 
     public int TodayRent { get => _rents[_currentDay]; }
 
@@ -45,7 +43,6 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad( _instance );
-        // Instance.Reset();
     }
 
     // Start is called before the first frame update
@@ -65,14 +62,12 @@ public class GameManager : MonoBehaviour
         _totalMoney = 0.0f;
         _dailyMoney = 0.0f;
         _currentDay = 0;
-        // StartDay();
     }
 
     public void EndDay()
     {
         _totalMoney += _dailyMoney;
 
-        // SceneManager.LoadScene( "EndOfDay" );
         LevelLoadTransitions transitioner = FindObjectOfType<LevelLoadTransitions>();
         transitioner.EndOfDay();
     }
@@ -81,7 +76,6 @@ public class GameManager : MonoBehaviour
     {
         Timer.SetDayLength( DayLengthSeconds );
 
-        // Physics.gravity = new Vector3( 0.0f, -_gravity[_currentDay], 0.0f );
         _dailyMoney = 0.0f;
 
         // Update daily UI stuff
@@ -112,9 +106,7 @@ public class GameManager : MonoBehaviour
         if( _totalMoney <= 0.0f )
         {
             // LOSER
-            Debug.Log( "LOSER" );
             transitioner.Lose();
-            // SceneManager.LoadScene( "Lose" );
             return;
         }
 
@@ -123,13 +115,10 @@ public class GameManager : MonoBehaviour
         if( _currentDay == _totalDays )
         {
             // WINNER
-            Debug.Log( "WINNER" );
             transitioner.Win();
-            // SceneManager.LoadScene( "Win" );
             return;
         }
         transitioner.LoadPlayScene();
-        // SceneManager.LoadScene( "JakeScene" );
     }
 
     public void PlayMenuMusic()

@@ -37,13 +37,11 @@ public class MenuButtonTweening : MonoBehaviour
     {
         button.GetComponent<RectTransform>().DOScale(ButtonHoverScale,ButtonHoverScaleTime).SetEase(ButtonHoverScaleCurve);
         print(button.transform.position);
-        // print("hover enter " + button.GetComponentInChildren<Text>().text);
     }
 
     public void OnHoverExitTween(Button button)
     {
         button.GetComponent<RectTransform>().DOScale(1,ButtonHoverScaleTime).SetEase(ButtonHoverScaleCurve);
-        // print("hover exit " + button.GetComponentInChildren<Text>().text);
     }
 
     private IEnumerator LoadInMenuSequence()
@@ -76,22 +74,5 @@ public class MenuButtonTweening : MonoBehaviour
         LoadSequence.Join(TitleSequence);
         LoadSequence.Play();
         yield return null;
-
-        // Tween QuitTween = QuitButton.DOMoveY(Screen.height * QuitButtonY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
-        // Tween HowToPlayTween = HowToPlayButton.DOMoveY(Screen.height * HowToPlayButtonY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
-        // Tween PlayTween = PlayButton.DOMoveY(Screen.height * PlayButtonY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
-        // WaitForSeconds betweenWait = new WaitForSeconds(TimeGapBetweenEachDrop);
-        
-        // yield return new WaitForSeconds(ButtonDropdownWaitTime);
-        // QuitButton.DOMoveY(Screen.height * QuitButtonY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
-        // // QuitTween.Play();
-        // yield return betweenWait;
-        // HowToPlayButton.DOMoveY(Screen.height * HowToPlayButtonY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
-        // // HowToPlayTween.Play();
-        // yield return betweenWait;
-        // PlayButton.DOMoveY(Screen.height * PlayButtonY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
-        // // PlayTween.Play();
-        // yield return betweenWait;
-        // Title.DOMoveY(Screen.height * TitleY, ButtonDropdownTime).SetEase(ButtonDropdownCurve);
     }
 }

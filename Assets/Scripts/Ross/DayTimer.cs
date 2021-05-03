@@ -12,7 +12,6 @@ public class DayTimer : MonoBehaviour
 
     private void Awake()
     {
-        // currentLevelTimeText.text = "0:00";
         currentLevelTimeText.text = "";
         totalLevelTimeSeconds = _dayLengthSeconds;
         GameManager.Instance.Timer = this;  
@@ -34,7 +33,6 @@ public class DayTimer : MonoBehaviour
         if(totalLevelTimeSeconds <= 0)
         {
             totalLevelTimeSeconds = 0;
-            // currentLevelTimeText.text = "00:00";
             return;
         }
         else
@@ -51,8 +49,6 @@ public class DayTimer : MonoBehaviour
         {
             GameManager.Instance.EndDay();
         }
-        // currentLevelTimeText.text = Mathf.Floor(totalLevelTimeSeconds / 60).ToString("00")
-        //     + ":" + Mathf.FloorToInt(totalLevelTimeSeconds % 60).ToString("00");
         timerArrow.RotateAround(timerArrow.position, Vector3.forward, -Time.deltaTime * (144.0f / _dayLengthSeconds));
     }
 
@@ -63,7 +59,6 @@ public class DayTimer : MonoBehaviour
 
     public void Reset()
     {
-        // TODO set day time in GM
         totalLevelTimeSeconds = _dayLengthSeconds;
         AdjustDayTimerText();
     }

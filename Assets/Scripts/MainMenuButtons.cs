@@ -11,7 +11,6 @@ public class MainMenuButtons : MonoBehaviour
     public void OnClickPlay()
     {
         GameManager.Instance.Reset();
-        // SceneManager.LoadScene( "JakeScene" );
     }
 
     public void OnClickHowToPlay()
