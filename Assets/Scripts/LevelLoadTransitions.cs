@@ -58,4 +58,28 @@ public class LevelLoadTransitions : MonoBehaviour
         yield return new WaitForSeconds(howToPlayTransitionTime);
         Application.Quit();
     }
+
+    public void Win()
+    {
+        StartCoroutine(LoadWin());
+    }
+
+    private IEnumerator LoadWin()
+    {
+        howToPlayTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(howToPlayTransitionTime);
+        SceneManager.LoadScene("Win");
+    }
+
+    public void Lose()
+    {
+        StartCoroutine(LoadLose());
+    }
+
+    private IEnumerator LoadLose()
+    {
+        howToPlayTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(howToPlayTransitionTime);
+        SceneManager.LoadScene("Lose");
+    }
 }

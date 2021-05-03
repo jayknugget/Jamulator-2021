@@ -102,11 +102,13 @@ public class GameManager : MonoBehaviour
 
     public void StartNextDay()
     {
+        LevelLoadTransitions transitioner = FindObjectOfType<LevelLoadTransitions>();
         if( _totalMoney <= 0.0f )
         {
             // LOSER
             Debug.Log( "LOSER" );
-            SceneManager.LoadScene( "Lose" );
+            transitioner.Lose();
+            // SceneManager.LoadScene( "Lose" );
             return;
         }
 
@@ -116,10 +118,11 @@ public class GameManager : MonoBehaviour
         {
             // WINNER
             Debug.Log( "WINNER" );
-            SceneManager.LoadScene( "Win" );
+            transitioner.Win();
+            // SceneManager.LoadScene( "Win" );
             return;
         }
-
-        SceneManager.LoadScene( "JakeScene" );
+        transitioner.LoadPlayScene();
+        // SceneManager.LoadScene( "JakeScene" );
     }
 }
