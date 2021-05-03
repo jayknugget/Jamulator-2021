@@ -147,6 +147,7 @@ public class OrderGenerator : MonoBehaviour
 
         if(CheckFruitAmountsArrayIsZero())
         {
+            basket.OrderComplete();
             GameObject successFX = Instantiate(basket.successFX, basket.transform)as GameObject;
             Destroy(successFX, 1f);
 
