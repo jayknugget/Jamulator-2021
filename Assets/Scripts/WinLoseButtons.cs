@@ -7,6 +7,7 @@ public class WinLoseButtons : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene( "TitleScreen" );
+        LevelLoadTransitions transitioner = FindObjectOfType<LevelLoadTransitions>();
+        transitioner.LoadTitleScene();
     }
 }

@@ -7,10 +7,6 @@ public class LevelLoadTransitions : MonoBehaviour
 {
     [SerializeField] private Animator howToPlayTransition;
     [SerializeField] private float howToPlayTransitionTime = 1f;
-    void Update()
-    {
-     
-    }
 
     public void LoadHowToPlayScene()
     {
