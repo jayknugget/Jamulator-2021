@@ -7,6 +7,6 @@ public class HowToPlayButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene( "TitleScreen" );
+        // SceneManager.LoadScene( "TitleScreen" );
     }
 }

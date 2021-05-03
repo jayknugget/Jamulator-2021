@@ -8,16 +8,16 @@ public class MainMenuButtons : MonoBehaviour
     public void OnClickPlay()
     {
         GameManager.Instance.Reset();
-        SceneManager.LoadScene( "JakeScene" );
+        // SceneManager.LoadScene( "JakeScene" );
     }
 
     public void OnClickHowToPlay()
     {
-        SceneManager.LoadScene( "HowToPlay" );
+        // SceneManager.LoadScene( "HowToPlay" );
     }
 
     public void OnClickQuit()
     {
-        Application.Quit();
+        // Application.Quit();
     }
 }

@@ -34,4 +34,28 @@ public class LevelLoadTransitions : MonoBehaviour
         yield return new WaitForSeconds(howToPlayTransitionTime);
         SceneManager.LoadScene("TitleScreen");
     }
+
+    public void LoadPlayScene()
+    {
+        StartCoroutine(LoadPlay());
+    }
+
+    private IEnumerator LoadPlay()
+    {
+        howToPlayTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(howToPlayTransitionTime);
+        SceneManager.LoadScene("JakeScene");
+    }
+
+    public void Quit()
+    {
+        StartCoroutine(QuitGame());
+    }
+
+    private IEnumerator QuitGame()
+    {
+        howToPlayTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(howToPlayTransitionTime);
+        Application.Quit();
+    }
 }
