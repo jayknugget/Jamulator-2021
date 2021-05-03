@@ -15,7 +15,7 @@ public class DayTimer : MonoBehaviour
         // currentLevelTimeText.text = "0:00";
         currentLevelTimeText.text = "";
         totalLevelTimeSeconds = _dayLengthSeconds;
-        GameManager.Instance.Timer = this;
+        GameManager.Instance.Timer = this;  
     }
 
     private void Start() 
