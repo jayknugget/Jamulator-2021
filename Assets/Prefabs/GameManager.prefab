@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _totalDays: 3
-  _rents: 010000000300000005000000
+  _rents: 050000000700000009000000
   MoneyText: {fileID: 0}
   Timer: {fileID: 0}
   DayLengthSeconds: 120
