@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MoneyCounters : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip hover, click, money;
+
     public Text DailyText, RentText, TotalText;
     public Button ContinueButton;
     public float CountdownTime;
@@ -45,6 +48,7 @@ public class MoneyCounters : MonoBehaviour
         DailyText.text = GameManager.Instance.DailyMoney.ToString("F2");
         TotalText.text = GameManager.Instance.TotalMoney.ToString("F2");
 
+        source.PlayOneShot(money);
         yield return new WaitForSeconds(1.0f);
         StartCoroutine(CountDownRent());
     }
@@ -66,11 +70,22 @@ public class MoneyCounters : MonoBehaviour
         RentText.text = "0.00";
         TotalText.text = GameManager.Instance.TotalMoney.ToString("F2");
 
+        source.PlayOneShot(money);
         ContinueButton.enabled = true;
     }
 
     public void OnClickContinue()
     {
         GameManager.Instance.StartNextDay();
+    }
+
+    public void OnHoverSFX()
+    {
+        source.PlayOneShot(hover);
+    }
+
+    public void OnClickSFX()
+    {
+        source.PlayOneShot(click);
     }
 }

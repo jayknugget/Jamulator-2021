@@ -29,6 +29,7 @@ public class LevelLoadTransitions : MonoBehaviour
         howToPlayTransition.SetTrigger("Start");
         yield return new WaitForSeconds(howToPlayTransitionTime);
         SceneManager.LoadScene("TitleScreen");
+        GameManager.Instance.PlayMenuMusic();
     }
 
     public void LoadPlayScene()
@@ -79,5 +80,18 @@ public class LevelLoadTransitions : MonoBehaviour
         howToPlayTransition.SetTrigger("Start");
         yield return new WaitForSeconds(howToPlayTransitionTime);
         SceneManager.LoadScene("Lose");
+    }
+
+    public void EndOfDay()
+    {
+        StartCoroutine(LoadEndOfDay());
+    }
+
+    private IEnumerator LoadEndOfDay()
+    {
+        GameManager.Instance.StopCurrentMusic();
+        howToPlayTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(howToPlayTransitionTime);
+        SceneManager.LoadScene("EndOfDay");
     }
 }
