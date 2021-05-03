@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    public static GameManager Instance => _instance;
+    public static GameManager Instance { get => _instance; }
 
     // money
     private float _totalMoney;
     private float _dailyMoney;
+    public float TotalMoney { get => _totalMoney; }
+    public float DailyMoney { get => _dailyMoney; }
 
     // day counter
     private int _currentDay;
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int[] _rents;
     // gravity per day
     [SerializeField] private float[] _gravity;
+
+    public int TodayRent { get => _rents[_currentDay]; }
 
     public Text MoneyText;
     public DayTimer Timer;
@@ -63,30 +67,13 @@ public class GameManager : MonoBehaviour
     public void EndDay()
     {
         _totalMoney += _dailyMoney;
-        _totalMoney -= _rents[_currentDay];
-//         if( _totalMoney <= 0.0f )
-//         {
-//             // LOSER
-//             Debug.Log( "LOSER" );
-//             SceneManager.LoadScene( "Lose" );
-//         }
 
-        _currentDay++;
-        // anything between eod and next day?
         SceneManager.LoadScene( "EndOfDay" );
-        // StartDay();
     }
 
     public void StartDay()
     {
-//         if( _currentDay == _totalDays )
-//         {
-//             // WINNER
-//             Debug.Log( "WINNER" );
-//             SceneManager.LoadScene( "Win" );
-//         }
-
-        // Timer.SetDayLength( DayLengthSeconds );
+        Timer.SetDayLength( DayLengthSeconds );
 
         // Physics.gravity = new Vector3( 0.0f, -_gravity[_currentDay], 0.0f );
         _dailyMoney = 0.0f;
@@ -106,5 +93,33 @@ public class GameManager : MonoBehaviour
     public void UpdateMoneyText()
     {
         MoneyText.text = _dailyMoney.ToString("F2");
+    }
+
+    public void DeductRent()
+    {
+        _totalMoney -= _rents[_currentDay];
+    }
+
+    public void StartNextDay()
+    {
+        if( _totalMoney <= 0.0f )
+        {
+            // LOSER
+            Debug.Log( "LOSER" );
+            SceneManager.LoadScene( "Lose" );
+            return;
+        }
+
+        _currentDay++;
+
+        if( _currentDay == _totalDays )
+        {
+            // WINNER
+            Debug.Log( "WINNER" );
+            SceneManager.LoadScene( "Win" );
+            return;
+        }
+
+        SceneManager.LoadScene( "JakeScene" );
     }
 }

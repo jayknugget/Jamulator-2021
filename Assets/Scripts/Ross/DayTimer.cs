@@ -53,7 +53,7 @@ public class DayTimer : MonoBehaviour
         }
         // currentLevelTimeText.text = Mathf.Floor(totalLevelTimeSeconds / 60).ToString("00")
         //     + ":" + Mathf.FloorToInt(totalLevelTimeSeconds % 60).ToString("00");
-        timerArrow.RotateAround(timerArrow.position, Vector3.forward, -Time.deltaTime * 1.2f);
+        timerArrow.RotateAround(timerArrow.position, Vector3.forward, -Time.deltaTime * (144.0f / _dayLengthSeconds));
     }
 
     public void SetDayLength( float timeSeconds )
