@@ -450,6 +450,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1477528906235070563, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477528906235070563, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477528906235070563, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2231267980867064901, guid: ec748c19bb3dbf7469e8d558eaf86040,
         type: 3}
       propertyPath: m_Name
@@ -464,6 +479,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: LoadTitleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004698318121030646, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.7607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004698318121030646, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004698318121030646, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.59037954
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004698318121030646, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.45229617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004698318121030646, guid: ec748c19bb3dbf7469e8d558eaf86040,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 6182335050444781020, guid: ec748c19bb3dbf7469e8d558eaf86040,
         type: 3}
