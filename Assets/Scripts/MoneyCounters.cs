@@ -28,6 +28,8 @@ public class MoneyCounters : MonoBehaviour
 
     private IEnumerator CountDailyMoney()
     {
+        yield return new WaitForSeconds(2.0f);
+
         float currentTime = 0.0f;
         float endtime = CountdownTime;
 
