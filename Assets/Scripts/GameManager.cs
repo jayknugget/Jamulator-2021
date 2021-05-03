@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     public DayTimer Timer;
     public float DayLengthSeconds;
 
+    // audio
+    public AudioSource source;
+    public AudioClip MenuMusic, GameMusic;
+
     private void Awake()
     {
         if( _instance != null && _instance != this )
@@ -124,5 +128,22 @@ public class GameManager : MonoBehaviour
         }
         transitioner.LoadPlayScene();
         // SceneManager.LoadScene( "JakeScene" );
+    }
+
+    public void PlayMenuMusic()
+    {
+        source.clip = MenuMusic;
+        source.Play();
+    }
+
+    public void PlayGameMusic()
+    {
+        source.clip = GameMusic;
+        source.Play();
+    }
+
+    public void StopCurrentMusic()
+    {
+        source.Stop();
     }
 }
