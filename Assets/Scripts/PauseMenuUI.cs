@@ -36,7 +36,7 @@ public class PauseMenuUI : MonoBehaviour
     public void OnClickMenu()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene( "TitleScreen" );
+        // SceneManager.LoadScene( "TitleScreen" );
     }
 
     public void OnClickResume()
