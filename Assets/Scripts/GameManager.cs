@@ -72,7 +72,9 @@ public class GameManager : MonoBehaviour
     {
         _totalMoney += _dailyMoney;
 
-        SceneManager.LoadScene( "EndOfDay" );
+        // SceneManager.LoadScene( "EndOfDay" );
+        LevelLoadTransitions transitioner = FindObjectOfType<LevelLoadTransitions>();
+        transitioner.EndOfDay();
     }
 
     public void StartDay()
@@ -132,8 +134,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayMenuMusic()
     {
-        source.clip = MenuMusic;
-        source.Play();
+        if( !source.isPlaying && source.clip != MenuMusic )
+        { 
+            source.clip = MenuMusic;
+            source.Play();
+        }
     }
 
     public void PlayGameMusic()

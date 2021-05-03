@@ -37,6 +37,7 @@ public class PauseMenuUI : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         // SceneManager.LoadScene( "TitleScreen" );
+        GameManager.Instance.StopCurrentMusic();
     }
 
     public void OnClickResume()
