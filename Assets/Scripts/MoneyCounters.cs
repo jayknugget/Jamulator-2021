@@ -26,12 +26,6 @@ public class MoneyCounters : MonoBehaviour
         StartCoroutine(CountDailyMoney());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private IEnumerator CountDailyMoney()
     {
         float currentTime = 0.0f;

@@ -48,7 +48,6 @@ public class EndOfDayTweens : MonoBehaviour
         Sequence pinSequence = DOTween.Sequence();
         pinSequence.Append(pin.DOFade(0, pinTime).SetEase(pinOpacityCurve).From());
         pinSequence.Join(pin.GetComponent<RectTransform>().DOScale(pinScale, pinTime).SetEase(pinScaleCurve).From());
-        // pinSequence.Append(mainCamera.DOShakePosition(.3f,3,20,100,true));
         yield return pinSequence.WaitForCompletion();
     }
 }

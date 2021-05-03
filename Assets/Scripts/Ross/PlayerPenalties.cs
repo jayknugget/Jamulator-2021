@@ -72,7 +72,6 @@ public class PlayerPenalties : MonoBehaviour
         stampSequence.Append(sadFace.DOFade(0, stampTime).SetEase(stampOpacityCurve).From());
         stampSequence.Join(sadFace.GetComponent<RectTransform>().DOScale(stampScale, stampTime).SetEase(stampScaleCurve).From());
         stampSequence.Join(mainCamera.DOShakePosition(.3f,.5f,20,100,true));
-        // stampSequence.Append(mainCamera.DOShakePosition(.3f,3,20,100,true));
         yield return stampSequence.WaitForCompletion();
     }
 
@@ -88,7 +87,6 @@ public class PlayerPenalties : MonoBehaviour
         }
         
         stampSequence.Join(mainCamera.DOShakePosition(.3f,.5f,20,100,true));
-        // stampSequence.Append(mainCamera.DOShakePosition(.3f,3,20,100,true));
         yield return stampSequence.WaitForCompletion();
     }
 }

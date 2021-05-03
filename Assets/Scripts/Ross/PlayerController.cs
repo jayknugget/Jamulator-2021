@@ -20,16 +20,16 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+            //UPDATE ANIMATION
             animator.SetBool("Forward_R", false);
             animator.SetBool("Backward_L", true);
-            //UPDATE ANIMATION
         }
         else if(Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
+            //UPDATE ANIMATION
             animator.SetBool("Forward_R", true);
             animator.SetBool("Backward_L", false);
-            //UPDATE ANIMATION
         }
         else
         {
