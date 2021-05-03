@@ -79,7 +79,8 @@ public class LevelLoadTransitions : MonoBehaviour
     {
         howToPlayTransition.SetTrigger("Start");
         yield return new WaitForSeconds(howToPlayTransitionTime);
-        SceneManager.LoadScene("Lose");
+        print("Switching to Lose");
+        SceneManager.LoadScene(4);//LOSE
     }
 
     public void EndOfDay()
