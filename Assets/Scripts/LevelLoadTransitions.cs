@@ -42,9 +42,11 @@ public class LevelLoadTransitions : MonoBehaviour
 
     private IEnumerator LoadPlay()
     {
+        GameManager.Instance.StopCurrentMusic();
         howToPlayTransition.SetTrigger("Start");
         yield return new WaitForSeconds(howToPlayTransitionTime);
         SceneManager.LoadScene("JakeScene");
+        GameManager.Instance.PlayGameMusic();
     }
 
     public void Quit()

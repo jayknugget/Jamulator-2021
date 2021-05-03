@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip hover, click;
+
     public void OnClickPlay()
     {
         GameManager.Instance.Reset();
@@ -19,5 +22,15 @@ public class MainMenuButtons : MonoBehaviour
     public void OnClickQuit()
     {
         // Application.Quit();
+    }
+
+    public void OnHoverSFX()
+    {
+        source.PlayOneShot(hover);
+    }
+
+    public void OnClickSFX()
+    {
+        source.PlayOneShot(click);
     }
 }
