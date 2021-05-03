@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Linq;
 
 public class OrderGenerator : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class OrderGenerator : MonoBehaviour
     public int currentPlayerPenalties;
 
     public int[] currentFruitAmountsInOrder;
-
+    [SerializeField] private int maxFruitInOrder = 4;
     public Image[] fruitIcons;
     public Text[] fruitAmountText;
     [SerializeField] private RectTransform TicketTransform;
@@ -38,6 +39,7 @@ public class OrderGenerator : MonoBehaviour
     public FruitType[] fruitTypesOnTicket;
 
     private WaitForSeconds InactiveWait;
+    private List<int> fruitChoiceNums = new List<int>{0,1,2,3,4};
     private void Awake()
     {
         basket = FindObjectOfType<Basket>();
@@ -63,9 +65,20 @@ public class OrderGenerator : MonoBehaviour
     {
         basket.ClearBasket();
         totalSecondsLeftOnOrder = startingSecondsLeftOnOrder;
+        fruitChoiceNums = fruitChoiceNums.OrderBy(x=> Random.value).ToList<int>();
+        List<int> chosenNums = fruitChoiceNums.Take(Random.Range(1,4)).ToList<int>();
 
-        int[] fruitAmountsInOrder = { Random.Range(0, 3),Random.Range(0,3),
-            Random.Range(0,3), Random.Range(0,3), Random.Range(0,3)};
+        int[] fruitAmountsInOrder = {0, 0, 0, 0, 0};
+
+        foreach(int num in chosenNums)
+        {
+            if(TotalFruitInOrder(fruitAmountsInOrder) < maxFruitInOrder)
+            {
+                fruitAmountsInOrder[num] += Random.Range(1, Mathf.Min(2, maxFruitInOrder - TotalFruitInOrder(fruitAmountsInOrder)));
+            }
+        }
+        // int[] fruitAmountsInOrder = { Random.Range(0, 3),Random.Range(0,3),
+        //     Random.Range(0,3), Random.Range(0,3), Random.Range(0,3)};
         currentFruitAmountsInOrder = fruitAmountsInOrder;
         // SetNextFruitOnOrder();
         // string currentOrderStatus = "Generated Order: ";
@@ -79,6 +92,16 @@ public class OrderGenerator : MonoBehaviour
         yield return BounceTicketIn();
         
         
+    }
+
+    private int TotalFruitInOrder(int[] fruits)
+    {
+        int total = 0;
+        foreach(int i in fruits)
+        {
+            total+=i;
+        }
+        return total;
     }
 
     private void InitializeOrderUI()

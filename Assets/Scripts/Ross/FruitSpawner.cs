@@ -16,7 +16,6 @@ public class FruitSpawner : MonoBehaviour
     private void SpawnAFruit()
     {
         int fruitToSpawn = (int)((fruitPrefabsToSpawn.Length - 1) * probabilities.Evaluate(Random.value));
-        print(fruitToSpawn);
         Instantiate(fruitPrefabsToSpawn[fruitToSpawn], transform.position, Quaternion.identity);
     }
 
